@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDateTime;
 
@@ -12,8 +13,8 @@ import java.time.LocalDateTime;
 @Setter
 public class BookingUpdateRequest {
     @NotEmpty
+    @Length(min = 2, max = 50)
     String customerName;
-    @NotEmpty
     @Email
     String customerEmail;
     @NotNull

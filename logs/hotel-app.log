@@ -4814,3 +4814,119 @@ com.hotelbooking.hotel.exception.NotFoundException: Room not found with id: 7
 2025-07-08T19:46:34.928+04:00  INFO 9579 --- [hotel-booking-system] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-07-08T19:46:34.929+04:00  INFO 9579 --- [hotel-booking-system] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Shutdown initiated...
 2025-07-08T19:46:34.929+04:00  INFO 9579 --- [hotel-booking-system] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Shutdown completed.
+2025-07-08T20:39:23.021+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : Starting HotelBookingSystemApplication using Java 21.0.7 with PID 12139 (/Users/rashad/IdeaProjects/hotel-booking-system/build/classes/java/main started by rashad in /Users/rashad/IdeaProjects/hotel-booking-system)
+2025-07-08T20:39:23.022+04:00 DEBUG 12139 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-07-08T20:39:23.023+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-07-08T20:39:23.055+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-08T20:39:23.055+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-08T20:39:23.766+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-08T20:39:23.824+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 3 JPA repository interfaces.
+2025-07-08T20:39:24.289+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-08T20:39:24.302+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-08T20:39:24.303+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-08T20:39:24.337+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-08T20:39:24.338+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1283 ms
+2025-07-08T20:39:24.499+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-08T20:39:24.547+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-08T20:39:24.578+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-08T20:39:24.861+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-08T20:39:24.883+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-08T20:39:25.032+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@586cdca9
+2025-07-08T20:39:25.034+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-08T20:39:25.101+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-08T20:39:25.959+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-08T20:39:26.078+04:00  WARN 12139 --- [hotel-booking-system] [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-07-08T20:39:26.078+04:00  WARN 12139 --- [hotel-booking-system] [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk7ljglxlj90ln3lbas4kl983m2" of relation "rooms" does not exist, skipping
+2025-07-08T20:39:26.091+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-08T20:39:26.554+04:00  WARN 12139 --- [hotel-booking-system] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-08T20:39:26.911+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-08T20:39:26.946+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-08T20:39:26.954+04:00  INFO 12139 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : Started HotelBookingSystemApplication in 4.362 seconds (process running for 4.956)
+2025-07-08T20:39:57.338+04:00  INFO 12139 --- [hotel-booking-system] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-08T20:39:57.349+04:00  INFO 12139 --- [hotel-booking-system] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-08T20:39:57.355+04:00  INFO 12139 --- [hotel-booking-system] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-08T20:39:57.357+04:00  INFO 12139 --- [hotel-booking-system] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-08T20:39:57.359+04:00  INFO 12139 --- [hotel-booking-system] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-08T20:40:08.136+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : Starting HotelBookingSystemApplication using Java 21.0.7 with PID 12189 (/Users/rashad/IdeaProjects/hotel-booking-system/build/classes/java/main started by rashad in /Users/rashad/IdeaProjects/hotel-booking-system)
+2025-07-08T20:40:08.137+04:00 DEBUG 12189 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-07-08T20:40:08.138+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-07-08T20:40:08.174+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-08T20:40:08.174+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-08T20:40:08.811+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-08T20:40:08.866+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 3 JPA repository interfaces.
+2025-07-08T20:40:09.323+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-08T20:40:09.335+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-08T20:40:09.335+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-08T20:40:09.366+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-08T20:40:09.366+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1192 ms
+2025-07-08T20:40:09.455+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-08T20:40:09.588+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3d84bf9d
+2025-07-08T20:40:09.589+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-08T20:40:09.668+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-08T20:40:09.723+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-08T20:40:09.759+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-08T20:40:10.005+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-08T20:40:10.081+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-08T20:40:10.888+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-08T20:40:11.301+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-08T20:40:11.752+04:00  WARN 12189 --- [hotel-booking-system] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-08T20:40:12.091+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-08T20:40:12.129+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-08T20:40:12.137+04:00  INFO 12189 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : Started HotelBookingSystemApplication in 4.369 seconds (process running for 4.906)
+2025-07-08T20:40:19.533+04:00  INFO 12189 --- [hotel-booking-system] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-08T20:40:19.541+04:00  INFO 12189 --- [hotel-booking-system] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-08T20:40:19.545+04:00  INFO 12189 --- [hotel-booking-system] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-08T20:40:19.548+04:00  INFO 12189 --- [hotel-booking-system] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-08T20:40:19.550+04:00  INFO 12189 --- [hotel-booking-system] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-08T20:40:21.350+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : Starting HotelBookingSystemApplication using Java 21.0.7 with PID 12210 (/Users/rashad/IdeaProjects/hotel-booking-system/build/classes/java/main started by rashad in /Users/rashad/IdeaProjects/hotel-booking-system)
+2025-07-08T20:40:21.351+04:00 DEBUG 12210 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-07-08T20:40:21.352+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-07-08T20:40:21.380+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-07-08T20:40:21.381+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-07-08T20:40:21.916+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-08T20:40:21.956+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 3 JPA repository interfaces.
+2025-07-08T20:40:22.331+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-08T20:40:22.341+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-08T20:40:22.341+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-08T20:40:22.368+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-08T20:40:22.368+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 987 ms
+2025-07-08T20:40:22.481+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-08T20:40:22.515+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-08T20:40:22.536+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-08T20:40:22.719+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-08T20:40:22.735+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-08T20:40:22.858+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6faa1352
+2025-07-08T20:40:22.860+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-08T20:40:22.912+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-08T20:40:23.553+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-08T20:40:23.980+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-08T20:40:24.331+04:00  WARN 12210 --- [hotel-booking-system] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-08T20:40:24.665+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-07-08T20:40:24.699+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-08T20:40:24.708+04:00  INFO 12210 --- [hotel-booking-system] [restartedMain] c.h.HotelBookingSystemApplication        : Started HotelBookingSystemApplication in 3.682 seconds (process running for 4.182)
+2025-07-08T20:41:10.415+04:00  INFO 12210 --- [hotel-booking-system] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-08T20:41:10.424+04:00  INFO 12210 --- [hotel-booking-system] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-08T20:41:10.429+04:00  INFO 12210 --- [hotel-booking-system] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-08T20:41:10.431+04:00  INFO 12210 --- [hotel-booking-system] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-08T20:41:10.433+04:00  INFO 12210 --- [hotel-booking-system] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
