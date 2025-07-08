@@ -1,10 +1,11 @@
 package com.hotelbooking.booking.dto.request;
 
+import com.hotelbooking.booking.entity.BookingStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -12,8 +13,8 @@ import java.time.LocalDateTime;
 public class BookingCreateRequest {
     String customerName;
     String customerEmail;
-    LocalDateTime startDate;
-    LocalDateTime endDate;
-    String status;
+    LocalDate startDate;
+    LocalDate endDate;
+    String status= BookingStatus.ACTIVE.name();
     Long roomId;
 }
