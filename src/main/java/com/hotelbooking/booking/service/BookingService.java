@@ -50,14 +50,7 @@ public class BookingService {
         return new PageResponse<>(bookingResponseList, pageMeta);
     }
 
-    public Booking findBookingByBookingId(Long id) {
-        return bookingRepository.findById(id).orElseThrow(
-                () -> {
-                    log.warn("Booking not found with ID: {}", id);
-                    return new NotFoundException("Booking not found with id: " + id);
-                });
-    }
-
+    @Transactional
     public BookingResponse createBooking(BookingCreateRequest bookingCreateRequest) {
         log.info("Creating booking with request: {}", bookingCreateRequest);
         Room room = roomService.findRoomByIdOrThrow(bookingCreateRequest.getRoomId());
@@ -66,5 +59,21 @@ public class BookingService {
         Booking savedBooking = bookingRepository.save(booking);
         log.info("Room created successfully with id: {}", savedBooking.getId());
         return bookingMapper.bookingToBookingResponse(savedBooking);
+    }
+
+    @Transactional
+    public void deleteBooking(Long id) {
+        log.info("Deleting booking with id: {}", id);
+        Booking booking = findBookingByBookingId(id);
+        bookingRepository.delete(booking);
+        log.info("Booking deleted successfully with id: {}", id);
+    }
+
+    public Booking findBookingByBookingId(Long id) {
+        return bookingRepository.findById(id).orElseThrow(
+                () -> {
+                    log.warn("Booking not found with ID: {}", id);
+                    return new NotFoundException("Booking not found with id: " + id);
+                });
     }
 }
