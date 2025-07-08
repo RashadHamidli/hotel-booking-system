@@ -13,6 +13,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Getter
@@ -22,7 +23,7 @@ import java.time.LocalDateTime;
 @FieldDefaults(level = AccessLevel.PROTECTED)
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
-public abstract class BaseEntity {
+public abstract class BaseEntity implements Serializable {
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
     LocalDateTime createdAt;
