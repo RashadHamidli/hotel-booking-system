@@ -12,11 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/hotels")
 @Validated
+@RequestMapping("/api/v1/hotels")
 public class HotelController {
     private final HotelService hotelService;
 
@@ -36,7 +38,8 @@ public class HotelController {
     public ResponseEntity<HotelResponse> createHotel(@RequestBody
                                                      @Valid HotelCreateRequest hotelCreateRequest) {
         HotelResponse hotelResponse = hotelService.createHotel(hotelCreateRequest);
-        return ResponseEntity.ok(hotelResponse);
+        return ResponseEntity.created(URI.create("/api/v1/hotels/" + hotelResponse.getId()))
+                .body(hotelResponse);
     }
 
     @DeleteMapping("/{id}")
@@ -46,10 +49,10 @@ public class HotelController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateHotel(@RequestBody
-                                            @Valid HotelUpdateRequest request,
-                                            @PathVariable Long id) {
-        hotelService.hotelUpdate(request, id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<HotelResponse> updateHotel(@RequestBody
+                                                     @Valid HotelUpdateRequest request,
+                                                     @PathVariable Long id) {
+        HotelResponse hotelResponse = hotelService.hotelUpdate(request, id);
+        return ResponseEntity.ok().body(hotelResponse);
     }
 }

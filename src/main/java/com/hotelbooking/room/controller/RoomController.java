@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+
 @RestController
 @RequiredArgsConstructor
 @Validated
@@ -21,8 +23,14 @@ public class RoomController {
 
     @GetMapping
     public ResponseEntity<PageResponse<RoomResponse>> getAll(Pageable pageable) {
-        PageResponse<RoomResponse> rooms = roomService.getAll(pageable);
-        return ResponseEntity.ok(rooms);
+        PageResponse<RoomResponse> roomResponsePageResponse = roomService.getAll(pageable);
+        return ResponseEntity.ok(roomResponsePageResponse);
+    }
+
+    @GetMapping("/hotel/{hotelId}")
+    public ResponseEntity<PageResponse<RoomResponse>> getRoomsByHotelId(@PathVariable Long hotelId, Pageable pageable) {
+        PageResponse<RoomResponse> roomResponsePageResponse = roomService.getAllRoomByHotelId(hotelId, pageable);
+        return ResponseEntity.ok(roomResponsePageResponse);
     }
 
     @GetMapping("/{id}")
@@ -31,16 +39,12 @@ public class RoomController {
         return ResponseEntity.ok(roomResponse);
     }
 
-    @GetMapping("/{id}/hotel")
-    public ResponseEntity<PageResponse<RoomResponse>> getRoomsByHotelId(@PathVariable Long id, Pageable pageable) {
-        PageResponse<RoomResponse> response = roomService.getAllRoomByHotelId(id,pageable);
-        return ResponseEntity.ok(response);
-    }
-
     @PostMapping
     public ResponseEntity<RoomResponse> createRoom(@RequestBody
                                                    @Valid RoomCreateRequest roomCreateRequest) {
-        return ResponseEntity.ok(roomService.createRoom(roomCreateRequest));
+        RoomResponse roomResponse = roomService.createRoom(roomCreateRequest);
+        return ResponseEntity.created(URI.create("/api/v1/rooms/" + roomResponse.getId()))
+                .body(roomResponse);
 
     }
 
@@ -48,8 +52,8 @@ public class RoomController {
     public ResponseEntity<RoomResponse> updateRoom(@PathVariable Long id,
                                                    @RequestBody
                                                    @Valid RoomUpdateRequest room) {
-        RoomResponse response = roomService.updateRoom(id, room);
-        return ResponseEntity.ok(response);
+        RoomResponse roomResponse = roomService.updateRoom(id, room);
+        return ResponseEntity.ok(roomResponse);
     }
 
     @DeleteMapping("/{id}")

@@ -1,6 +1,7 @@
 package com.hotelbooking.booking.service;
 
 import com.hotelbooking.booking.dto.request.BookingCreateRequest;
+import com.hotelbooking.booking.dto.request.BookingUpdateRequest;
 import com.hotelbooking.booking.dto.response.BookingResponse;
 import com.hotelbooking.booking.entity.Booking;
 import com.hotelbooking.booking.mapper.BookingMapper;
@@ -9,7 +10,6 @@ import com.hotelbooking.common.dto.PageMeta;
 import com.hotelbooking.common.dto.PageResponse;
 import com.hotelbooking.hotel.exception.NotFoundException;
 import com.hotelbooking.room.entity.Room;
-import com.hotelbooking.room.mapper.RoomMapper;
 import com.hotelbooking.room.service.RoomService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -67,6 +67,16 @@ public class BookingService {
         Booking booking = findBookingByBookingId(id);
         bookingRepository.delete(booking);
         log.info("Booking deleted successfully with id: {}", id);
+    }
+
+    @Transactional
+    public BookingResponse updateBooking(Long id, BookingUpdateRequest bookingUpdateRequest) {
+        log.info("Updating booking with ID: {}, request: {}", id, bookingUpdateRequest);
+        Booking booking = findBookingByBookingId(id);
+        bookingMapper.updateBookingFromBookingRequest(bookingUpdateRequest,booking);
+        Booking updateBooking = bookingRepository.save(booking);
+        log.info("Room updated successfully with ID: {}", id);
+        return bookingMapper.bookingToBookingResponse(updateBooking);
     }
 
     public Booking findBookingByBookingId(Long id) {

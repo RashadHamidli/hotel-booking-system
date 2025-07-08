@@ -82,8 +82,8 @@ public class RoomService {
     }
 
     @Transactional(readOnly = true)
-    public PageResponse<RoomResponse> getAllRoomByHotelId(Long id, Pageable pageable) {
-        Page<Room> rooms = roomRepository.findAllRoomByHotelId(id, pageable);
+    public PageResponse<RoomResponse> getAllRoomByHotelId(Long hotelId, Pageable pageable) {
+        Page<Room> rooms = roomRepository.findAllRoomByHotelId(hotelId, pageable);
         List<RoomResponse> roomResponses = roomMapper.roomPageToRoomResponseList(rooms);
         PageMeta pageMeta = new PageMeta(
                 rooms.getNumber(),

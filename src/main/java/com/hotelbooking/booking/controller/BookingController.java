@@ -12,6 +12,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+
+import static org.springframework.http.ResponseEntity.created;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/bookings")
@@ -35,13 +39,16 @@ public class BookingController {
     public ResponseEntity<BookingResponse> createBooking(@RequestBody
                                                          @Valid BookingCreateRequest bookingCreateRequest) {
         BookingResponse bookingResponse = bookingService.createBooking(bookingCreateRequest);
-        return ResponseEntity.ok().body(bookingResponse);
+        return ResponseEntity.created(URI.create("/api/v1/bookings/" + bookingResponse.getId()))
+                .body(bookingResponse);
     }
 
     @PutMapping("/{id}")
-    public void updateBooking(@PathVariable Long id,
+    public ResponseEntity<BookingResponse> updateBooking(@PathVariable Long id,
                               @RequestBody
                               @Valid BookingUpdateRequest booking) {
+        BookingResponse bookingResponse= bookingService.updateBooking(id,booking);
+        return ResponseEntity.ok().body(bookingResponse);
     }
 
     @DeleteMapping("/{id}")

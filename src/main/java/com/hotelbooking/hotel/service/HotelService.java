@@ -65,12 +65,13 @@ public class HotelService {
     }
 
     @Transactional
-    public void hotelUpdate(HotelUpdateRequest request, Long id) {
+    public HotelResponse hotelUpdate(HotelUpdateRequest request, Long id) {
         log.info("Updating hotel with ID: {}, request: {}", id, request);
         Hotel hotel = findHotelByIdOrThrow(id);
         hotelMapper.updateHotelFromRequest(request, hotel);
         hotelRepository.save(hotel);
         log.info("Hotel updated successfully with ID: {}", id);
+        return hotelMapper.hotelToHotelResponse(hotel);
     }
 
     public Hotel findHotelByIdOrThrow(Long id) {
