@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: hotel-booking-system
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    username: postgres
+    password: admin
+    url: jdbc:postgresql://localhost:5432/hotel_booking_db
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: never
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+server:
+  port: 8080
+logging:
+  file:
+    name: logs/hotel-app.log
+  level:
+    root: info
+    com.hotelbooking: debug
+
+springdoc:
+  swagger-ui:
+    path: "/"
+
