@@ -5,6 +5,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+    open-in-view: false
   datasource:
     username: postgres
     password: admin
@@ -25,9 +26,11 @@ logging:
     name: logs/hotel-app.log
   level:
     root: info
-    com.hotelbooking: debug
+    com.hotelbooking: warn
 
 springdoc:
   swagger-ui:
     path: "/"
+
+
 

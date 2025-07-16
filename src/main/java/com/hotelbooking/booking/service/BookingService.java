@@ -8,10 +8,9 @@ import com.hotelbooking.booking.mapper.BookingMapper;
 import com.hotelbooking.booking.repository.BookingRepository;
 import com.hotelbooking.common.dto.PageMeta;
 import com.hotelbooking.common.dto.PageResponse;
-import com.hotelbooking.hotel.exception.NotFoundException;
+import com.hotelbooking.common.exception.NotFoundException;
 import com.hotelbooking.room.entity.Room;
 import com.hotelbooking.room.service.RoomService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -38,7 +37,7 @@ public class BookingService {
     @Transactional(readOnly = true)
     public PageResponse<BookingResponse> findAllBooking(Pageable pageable) {
         Page<Booking> bookings = bookingRepository.findAll(pageable);
-        List<BookingResponse> bookingResponseList= bookingMapper.bookingPageToBookingResonseList(bookings);
+        List<BookingResponse> bookingResponseList = bookingMapper.bookingPageToBookingResonseList(bookings);
         PageMeta pageMeta = new PageMeta(
                 bookings.getNumber(),
                 bookings.getSize(),
@@ -54,7 +53,7 @@ public class BookingService {
     public BookingResponse createBooking(BookingCreateRequest bookingCreateRequest) {
         log.info("Creating booking with request: {}", bookingCreateRequest);
         Room room = roomService.findRoomByIdOrThrow(bookingCreateRequest.getRoomId());
-        Booking booking=bookingMapper.bookingCreateRequestToBooking(bookingCreateRequest);
+        Booking booking = bookingMapper.createBookingFromBookingCreateRequest(bookingCreateRequest);
         booking.setRoom(room);
         Booking savedBooking = bookingRepository.save(booking);
         log.info("Room created successfully with id: {}", savedBooking.getId());
@@ -73,7 +72,7 @@ public class BookingService {
     public BookingResponse updateBooking(Long id, BookingUpdateRequest bookingUpdateRequest) {
         log.info("Updating booking with ID: {}, request: {}", id, bookingUpdateRequest);
         Booking booking = findBookingByBookingId(id);
-        bookingMapper.updateBookingFromBookingRequest(bookingUpdateRequest,booking);
+        bookingMapper.updateBookingFromBookingRequest(bookingUpdateRequest, booking);
         Booking updateBooking = bookingRepository.save(booking);
         log.info("Room updated successfully with ID: {}", id);
         return bookingMapper.bookingToBookingResponse(updateBooking);
@@ -81,9 +80,6 @@ public class BookingService {
 
     public Booking findBookingByBookingId(Long id) {
         return bookingRepository.findById(id).orElseThrow(
-                () -> {
-                    log.warn("Booking not found with ID: {}", id);
-                    return new NotFoundException("Booking not found with id: " + id);
-                });
+                () -> new NotFoundException("Booking not found with id: " + id));
     }
 }

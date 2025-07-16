@@ -2,9 +2,8 @@ package com.hotelbooking.room.service;
 
 import com.hotelbooking.common.dto.PageMeta;
 import com.hotelbooking.common.dto.PageResponse;
+import com.hotelbooking.common.exception.NotFoundException;
 import com.hotelbooking.hotel.entity.Hotel;
-import com.hotelbooking.hotel.exception.NotFoundException;
-import com.hotelbooking.hotel.repository.HotelRepository;
 import com.hotelbooking.hotel.service.HotelService;
 import com.hotelbooking.room.dto.request.RoomCreateRequest;
 import com.hotelbooking.room.dto.request.RoomUpdateRequest;
@@ -56,7 +55,7 @@ public class RoomService {
     public RoomResponse createRoom(RoomCreateRequest roomCreateRequest) {
         log.info("Creating room with request: {}", roomCreateRequest);
         Hotel hotel = hotelService.findHotelByIdOrThrow(roomCreateRequest.getHotelId());
-        Room room = roomMapper.roomCreateRequestToRoom(roomCreateRequest);
+        Room room = roomMapper.createRoomFromRoomCreateRequest(roomCreateRequest);
         room.setHotel(hotel);
         Room savedRoom = roomRepository.save(room);
         log.info("Room created successfully with id: {}", savedRoom.getId());
@@ -97,9 +96,6 @@ public class RoomService {
 
     public Room findRoomByIdOrThrow(Long id) {
         return roomRepository.findById(id)
-                .orElseThrow(() -> {
-                    log.warn("Room not found with ID: {}", id);
-                    return new NotFoundException("Room not found with id: " + id);
-                });
+                .orElseThrow(() -> new NotFoundException("Room not found with id: " + id));
     }
 }

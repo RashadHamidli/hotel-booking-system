@@ -1,12 +1,12 @@
 package com.hotelbooking.hotel.service;
 
+import com.hotelbooking.common.exception.NotFoundException;
 import com.hotelbooking.hotel.dto.request.HotelCreateRequest;
 import com.hotelbooking.common.dto.PageResponse;
 import com.hotelbooking.hotel.dto.response.HotelResponse;
 import com.hotelbooking.hotel.dto.request.HotelUpdateRequest;
 import com.hotelbooking.common.dto.PageMeta;
 import com.hotelbooking.hotel.entity.Hotel;
-import com.hotelbooking.hotel.exception.NotFoundException;
 import com.hotelbooking.hotel.mapper.HotelMapper;
 import com.hotelbooking.hotel.repository.HotelRepository;
 import lombok.RequiredArgsConstructor;
@@ -76,9 +76,6 @@ public class HotelService {
 
     public Hotel findHotelByIdOrThrow(Long id) {
         return hotelRepository.findById(id)
-                .orElseThrow(() -> {
-                    log.warn("Hotel not found with ID: {}", id);
-                    return new NotFoundException("Hotel not found with id: " + id);
-                });
+                .orElseThrow(() -> new NotFoundException("Hotel not found with id: " + id));
     }
 }

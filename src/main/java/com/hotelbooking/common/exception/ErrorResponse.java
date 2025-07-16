@@ -1,4 +1,4 @@
-package com.hotelbooking.hotel.dto.response;
+package com.hotelbooking.common.exception;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

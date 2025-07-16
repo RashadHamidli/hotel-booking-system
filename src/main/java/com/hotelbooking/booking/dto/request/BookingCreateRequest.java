@@ -9,6 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDate;
@@ -17,6 +18,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @ValidDateRange
+@ToString
 public class BookingCreateRequest {
     @NotBlank
     @Length(max = 50, min = 2)
@@ -29,8 +31,6 @@ public class BookingCreateRequest {
     @NotNull
     @FutureOrPresent
     LocalDate endDate;
-    @NotNull
-    BookingStatus status = BookingStatus.ACTIVE;
     @NotNull
     Long roomId;
 }

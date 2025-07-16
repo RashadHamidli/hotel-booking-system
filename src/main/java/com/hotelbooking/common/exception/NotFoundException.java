@@ -1,4 +1,4 @@
-package com.hotelbooking.room.exception;
+package com.hotelbooking.common.exception;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {
