@@ -27,7 +27,6 @@ logging:
   level:
     root: info
     com.hotelbooking: warn
-
 springdoc:
   swagger-ui:
     path: "/"

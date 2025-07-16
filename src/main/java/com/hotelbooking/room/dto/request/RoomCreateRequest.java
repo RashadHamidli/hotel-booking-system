@@ -1,6 +1,7 @@
 package com.hotelbooking.room.dto.request;
 
-import jakarta.validation.constraints.DecimalMin;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -14,12 +15,12 @@ import java.math.BigDecimal;
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class RoomCreateRequest {
     @NotNull
     Long hotelId;
     @NotNull
     Long roomNumber;
     @NotNull
-    @DecimalMin("0.0")
     BigDecimal price;
 }

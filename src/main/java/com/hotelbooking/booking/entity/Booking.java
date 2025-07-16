@@ -23,14 +23,18 @@ public class Booking extends BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    @Column(name = "customer_name")
     String customerName;
+    @Column(name = "customer_email")
     String customerEmail;
+    @Column(name = "start_date")
     LocalDateTime startDate;
+    @Column(name = "end_date")
     LocalDateTime endDate;
     @Enumerated(EnumType.STRING)
     BookingStatus status;
     @ManyToOne
-    @JoinColumn(name = "room_id", nullable = false)
+    @JoinColumn(name = "room_id")
     Room room;
 
 }

@@ -22,9 +22,7 @@ public class Hotel extends BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @Column(nullable = false, length = 50)
     String name;
-    @Column(nullable = false, length = 50)
     String location;
     @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Room> rooms;

@@ -1,5 +1,8 @@
 package com.hotelbooking.room.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.hotelbooking.room.entity.RoomStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -14,6 +17,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class RoomResponse {
     Long id;
     Long hotelId;

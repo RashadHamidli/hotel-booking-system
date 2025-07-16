@@ -25,15 +25,13 @@ public class Room extends BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @Column(nullable = false)
+    @Column(name = "room_number")
     Long roomNumber;
-    @Column(nullable = false, precision = 10, scale = 2)
     BigDecimal price;
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     RoomStatus status;
     @ManyToOne
-    @JoinColumn(name = "hotel_id", nullable = false)
+    @JoinColumn(name = "hotel_id")
     Hotel hotel;
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Booking> bookings;
